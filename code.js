@@ -1,14 +1,23 @@
-//comentario
-
 min = 1
 max = 20
 
-velocidade = 100
+//velocidade = 100
 
-comparar = false
+//comparar = false
 
 imagem01 = 0
 imagem02 = 0
+
+preloadImagem = new Array()
+for(i = 0; i < 21; i++){
+    preloadImagem[i] = new Image()
+    preloadImagem[i].src = `imagens/${i}.jpg`
+}
+
+for(i = 0; i < 40; i++){
+    img = window.document.getElementById(i)  
+    img.src = preloadImagem[0].src
+}
 
 tabuleiro = new Array()
 for(i = 0; i < 40; i++){  
@@ -31,22 +40,20 @@ function gerarAleatiro() {
 
 function revelar(id){
     if(imagem01 == 0){
-        imagem01 = id
+        imagem01 = tabuleiro[id]
         img = window.document.getElementById(id)  
-        img.src = `imagens/${tabuleiro[id]}.jpg`
+        img.src = preloadImagem[tabuleiro[id]].src
     }
     else{
-        comparar = true
-        imagem02 = id
+        imagem02 = tabuleiro[id]
         img = window.document.getElementById(id)  
-        img.src = `imagens/${tabuleiro[id]}.jpg`
+        img.src = preloadImagem[tabuleiro[id]].src
     }
-
 }
 
-function ocultar (){
+/*function ocultar (){
     if(comparar == true){
-        sleep(3000)
+        sleep(1000)
         comparar = false
         if(tabuleiro[imagem01] != tabuleiro[imagem02]){
             img = window.document.getElementById(imagem01)  
@@ -73,7 +80,7 @@ function sleep(milliseconds) { //gera um delay, milliseconds determina a duracao
     }
 }
 
-/*for(i = 0; i < 40; i++){
+for(i = 0; i < 40; i++){
     img = window.document.getElementById(i + 1)  
     img.src = `imagens/${tabuleiro[i]}.jpg`
 }*/
