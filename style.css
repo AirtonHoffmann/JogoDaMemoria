@@ -1,0 +1,18 @@
+body {
+    background-color: blanchedalmond;
+    background-size: cover;
+}
+
+.centralizar {
+    /*background-color: blanchedalmond;*/
+    width: 880px;
+    height: 550px;
+    margin: auto;
+}
+
+.quadrado {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+}
