@@ -1,12 +1,13 @@
 min = 1
 max = 20
 
-//velocidade = 100
+figuara01 = new Object()
+figuara01.imagem = null
+figuara01.id = null
 
-//comparar = false
-
-imagem01 = 0
-imagem02 = 0
+figuara02 = new Object()
+figuara02.imagem = null
+figuara02.id = null
 
 preloadImagem = new Array()
 for(i = 0; i < 21; i++){
@@ -39,18 +40,51 @@ function gerarAleatiro() {
 }
 
 function revelar(id){
-    if(imagem01 == 0){
-        imagem01 = tabuleiro[id]
-        img = window.document.getElementById(id)  
-        img.src = preloadImagem[tabuleiro[id]].src
-    }
-    else{
-        imagem02 = tabuleiro[id]
-        img = window.document.getElementById(id)  
-        img.src = preloadImagem[tabuleiro[id]].src
+    if(figuara01.imagem == null || figuara02.imagem == null){
+        if(figuara01.imagem == null){
+            figuara01.imagem = tabuleiro[id]
+            figuara01.id = id
+            mudarImagem(id)
+        }
+        else{
+            figuara02.imagem = tabuleiro[id]
+            figuara02.id = id
+            mudarImagem(id)
+        }
     }
 }
 
+function mudarImagem(id){
+    img = window.document.getElementById(id)  
+    img.src = preloadImagem[tabuleiro[id]].src
+}
+
+function verificar(){
+    if(figuara01.imagem != null && figuara02.imagem != null){
+        if(figuara01.imagem != figuara02.imagem){  
+            img = window.document.getElementById(figuara01.id)  
+            img.src = preloadImagem[0].src
+            img = window.document.getElementById(figuara02.id)  
+            img.src = preloadImagem[0].src
+        }
+        sleep(1000)
+        figuara01.imagem = null
+        figuara01.id = null
+        figuara02.imagem = null
+        figuara02.id = null
+    }
+    
+}
+
+setInterval(verificar, 500)
+
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
 /*function ocultar (){
     if(comparar == true){
         sleep(1000)
@@ -71,14 +105,7 @@ function revelar(id){
     }
 }
 
-function sleep(milliseconds) { //gera um delay, milliseconds determina a duracao
-    start = new Date().getTime();
-    for (s = 0; s < 1e7; s++) { //1e7 = 10,000,000
-        if ((new Date().getTime() - start) > milliseconds){
-            break;
-        }
-    }
-}
+
 
 for(i = 0; i < 40; i++){
     img = window.document.getElementById(i + 1)  
