@@ -4,10 +4,25 @@ body {
 }
 
 .centralizar {
-    /*background-color: blanchedalmond;*/
+    background-color: black;
+    width: 880px;
+    height: 660px;
+    margin: auto;
+}
+
+.painel {
+    background-color: aliceblue;
+    width: 870px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+}
+.centralizarQuadrados {
+    background-color:  aliceblue;
     width: 880px;
     height: 550px;
     margin: auto;
+    float: left;
 }
 
 .quadrado {
@@ -17,4 +32,23 @@ body {
     height: 100px;
     margin: 5px;
     float: left;
+}
+
+.botao {
+    border-radius: 15%;
+    box-shadow: 5px 5px 5px black;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    float: left;
+}
+
+.pontos {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    width: 750px;
+    height: 55px;
+    margin-top: 22.5px;
+    float: right;
 }
