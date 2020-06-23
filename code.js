@@ -40,16 +40,18 @@ function gerarAleatiro() {
 }
 
 function revelar(id){
-    if(figuara01.imagem == null || figuara02.imagem == null){
-        if(figuara01.imagem == null){
-            figuara01.imagem = tabuleiro[id]
-            figuara01.id = id
-            mudarImagem(id)
-        }
-        else if(id != figuara01.id){
-            figuara02.imagem = tabuleiro[id]
-            figuara02.id = id
-            mudarImagem(id)
+    if(tabuleiro[id] != null){
+        if(figuara01.imagem == null || figuara02.imagem == null){
+            if(figuara01.imagem == null){
+                figuara01.imagem = tabuleiro[id]
+                figuara01.id = id
+                mudarImagem(id)
+            }
+            else if(id != figuara01.id){
+                figuara02.imagem = tabuleiro[id]
+                figuara02.id = id
+                mudarImagem(id)
+            }
         }
     }
 }
@@ -66,8 +68,11 @@ function verificar(){
             img.src = preloadImagem[0].src
             img = window.document.getElementById(figuara02.id)  
             img.src = preloadImagem[0].src
+        }else{
+            tabuleiro[figuara01.id] = null
+            tabuleiro[figuara02.id] = null
         }
-        sleep(1000)
+        sleep(500)
         figuara01.imagem = null
         figuara01.id = null
         figuara02.imagem = null
@@ -76,7 +81,7 @@ function verificar(){
     
 }
 
-setInterval(verificar, 500)
+setInterval(verificar, 100)
 
 function sleep(milliseconds) {
     const date = Date.now();
