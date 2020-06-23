@@ -1,5 +1,8 @@
 jogar = false
 
+intervalo = null 
+contagem = 0
+
 erros = 0
 porcentagem = 100
 
@@ -79,6 +82,10 @@ function verificar(){
             erros++
             porcentagem = Math.trunc(20*100/(20+erros))
         }else{
+            contagem++
+            if(contagem == 20){
+                clearInterval(intervalo)
+            }
             tabuleiro[figuara01.id] = null
             tabuleiro[figuara02.id] = null
         }
@@ -92,7 +99,7 @@ function verificar(){
 function comecarJogo(){
     if(jogar == false){
         jogar = true
-        setInterval(() => { timer(); }, 1000)
+        intervalo = setInterval(() => { timer(); }, 1000)
         img = window.document.getElementById('botao')  
         img.src = 'imagens/jogar.png'
     }else{
