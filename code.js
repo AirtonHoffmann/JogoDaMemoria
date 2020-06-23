@@ -12,7 +12,7 @@ figuara02.id = null
 preloadImagem = new Array()
 for(i = 0; i < 21; i++){
     preloadImagem[i] = new Image()
-    preloadImagem[i].src = `imagens/${i}.jpg`
+    preloadImagem[i].src = `imagens/${i}.png`
 }
 
 for(i = 0; i < 40; i++){
@@ -46,7 +46,7 @@ function revelar(id){
             figuara01.id = id
             mudarImagem(id)
         }
-        else{
+        else if(id != figuara01.id){
             figuara02.imagem = tabuleiro[id]
             figuara02.id = id
             mudarImagem(id)
@@ -85,29 +85,3 @@ function sleep(milliseconds) {
         currentDate = Date.now();
     } while (currentDate - date < milliseconds);
 }
-/*function ocultar (){
-    if(comparar == true){
-        sleep(1000)
-        comparar = false
-        if(tabuleiro[imagem01] != tabuleiro[imagem02]){
-            img = window.document.getElementById(imagem01)  
-            img.src = `imagens/${0}.jpg` 
-            img = window.document.getElementById(imagem02)  
-            img.src = `imagens/${0}.jpg` 
-        }else{
-            img = window.document.getElementById(imagem01)  
-            img.src = `imagens/${41}.jpg` 
-            img = window.document.getElementById(imagem02)  
-            img.src = `imagens/${41}.jpg` 
-        }
-            imagem01 = 0
-            imagem02 = 0
-    }
-}
-
-
-
-for(i = 0; i < 40; i++){
-    img = window.document.getElementById(i + 1)  
-    img.src = `imagens/${tabuleiro[i]}.jpg`
-}*/

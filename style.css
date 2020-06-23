@@ -1,5 +1,5 @@
 body {
-    background-color: blanchedalmond;
+    background-color: aliceblue;
     background-size: cover;
 }
 
@@ -11,6 +11,8 @@ body {
 }
 
 .quadrado {
+    border-radius: 15%;
+    box-shadow: 5px 5px 5px black;
     width: 100px;
     height: 100px;
     margin: 5px;
