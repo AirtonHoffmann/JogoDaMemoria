@@ -118,6 +118,12 @@ function timer() {
         }
     }
 
-    format = '<strong>Points '+porcentagem+'% &nbsp;&nbsp;&nbsp; Time '+(hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss)+'</strong>'
+    porcentagemTxt = `${porcentagem}`
+    if(porcentagem < 10)
+        porcentagemTxt = `00${porcentagem}`
+    else if(porcentagem < 100)
+        porcentagemTxt = `0${porcentagem}`
+
+    format = '<strong>Points '+porcentagemTxt+'% &nbsp;Time '+(hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss)+'</strong>'
     document.getElementById('pontos').innerHTML = format
 }
