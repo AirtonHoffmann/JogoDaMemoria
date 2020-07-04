@@ -18,53 +18,26 @@
 
         </div>
 
-        <div class="centralizarQuadrados">
-
-            <div class="quadrado" onmousedown="revelar('0')" > <img id="0" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('1')" > <img id="1" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('2')" > <img id="2" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('3')" > <img id="3" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('4')" > <img id="4" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('5')" > <img id="5" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('6')" > <img id="6" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('7')" > <img id="7" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('8')" > <img id="8" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('9')" > <img id="9" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('10')" > <img id="10" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('11')" > <img id="11" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('12')" > <img id="12" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('13')" > <img id="13" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('14')" > <img id="14" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('15')" > <img id="15" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('16')" > <img id="16" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('17')" > <img id="17" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('18')" > <img id="18" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('19')" > <img id="19" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('20')" > <img id="20" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('21')" > <img id="21" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('22')" > <img id="22" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('23')" > <img id="23" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('24')" > <img id="24" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('25')" > <img id="25" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('26')" > <img id="26" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('27')" > <img id="27" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('28')" > <img id="28" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('29')" > <img id="29" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('30')" > <img id="30" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('31')" > <img id="31" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('32')" > <img id="32" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('33')" > <img id="33" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('34')" > <img id="34" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('35')" > <img id="35" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('36')" > <img id="36" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('37')" > <img id="37" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('38')" > <img id="38" src="" alt=""></div>
-            <div class="quadrado" onmousedown="revelar('39')" > <img id="39" src="" alt=""></div>
-
-        </div>   
+        <div class="centralizarQuadrados" id="cq"> </div>   
 
     </div>
 
+    <script>
+        novadiv = new Array()
+        novaImg = new Array()
+
+        for(i = 0; i <= 39; i++){
+            novadiv[i] = document.createElement('div') 
+            novadiv[i].setAttribute('id', `d${i}`) 
+            novadiv[i].setAttribute('onmousedown', `revelar('${i}')`) 
+            novadiv[i].className = 'quadrado'
+            document.getElementById('cq').appendChild(novadiv[i])
+
+            novaImg[i] = document.createElement('IMG')
+            novaImg[i].setAttribute('id', `${i}`)
+            document.getElementById(`d${i}`).appendChild(novaImg[i])
+        }
+    </script>
     <script src="code.js"></script>
 </body>
 </html>

@@ -51,6 +51,17 @@ function gerarAleatiro() {
     return num
 }
 
+function comecarJogo(){
+    if(jogar == false){
+        jogar = true
+        intervalo = setInterval(() => { timer(); }, 1000)
+        img = window.document.getElementById('botao')  
+        img.src = 'imagens/jogar.png'
+    }else{
+        document.location.reload()
+    }  
+}
+
 function mudarImagem(idElemento, idImagem){
     img = window.document.getElementById(idElemento)  
     img.src = preloadImagem[idImagem].src
@@ -94,17 +105,6 @@ function verificar(){
         figuara02.imagem = null
         figuara02.id = null
     }
-}
-
-function comecarJogo(){
-    if(jogar == false){
-        jogar = true
-        intervalo = setInterval(() => { timer(); }, 1000)
-        img = window.document.getElementById('botao')  
-        img.src = 'imagens/jogar.png'
-    }else{
-        document.location.reload()
-    }  
 }
 
 function timer() {
